@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sveinbjörn Geirsson | X-Road X-pert</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/iosevka@4.5.4/index.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --background-color: #fff;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            --font-mono: 'Iosevka', 'Consolas', 'SF Mono', 'Roboto Mono', monospace;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            font-family: var(--font-mono);
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-mono);
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: var(--light-color);
+            font-family: var(--font-mono);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+        
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            font-family: var(--font-mono);
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            left: 25%;
+            bottom: 0;
+            width: 50%;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .expertise-card {
+            background-color: var(--light-color);
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .expertise-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-family: var(--font-mono);
+        }
+        
+        .expertise-card p {
+            margin-bottom: 1rem;
+        }
+        
+        .about {
+            background-color: var(--light-color);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            padding-right: 2rem;
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact h2::after {
+            background-color: white;
+        }
+        
+        .contact-card {
+            background-color: white;
+            border-radius: 5px;
+            padding: 2rem;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            color: var(--text-color);
+        }
+        
+        .contact-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info-large {
+            margin-top: 1rem;
+        }
+        
+        .contact-info-large a {
+            display: block;
+            margin: 0.5rem 0;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-info-large a:hover {
+            color: var(--accent-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                order: 2;
+            }
+            
+            .about-image {
+                order: 1;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">xro<span>.ad</span></a>
+                <ul class="nav-links">
+                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hero">
+                <h1>Sveinbjörn Geirsson</h1>
+                <h2>X-Road X-pert</h2>
+                <p>
+                    Specialized in helping organizations deploy, maintain, and optimize X-Road secure data exchange platforms with a focus on operational monitoring and security best practices.
+                </p>
+                <div class="contact-info">
+                    <a href="mailto:sveinbjorn@sveinbjorn.dev">sveinbjorn@sveinbjorn.dev</a>
+                    <div style="margin-top: 10px;">
+                        <a href="https://sveinbjorn.dev" target="_blank" style="margin-right: 20px;">English CV</a>
+                        <a href="https://sveinbjorn.is" target="_blank">Íslensk CV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section id="expertise">
+        <div class="container">
+            <div class="section-title">
+                <h2>X-Road Expertise</h2>
+            </div>
+            
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>Deployment & Configuration</h3>
+                    <p>Expert implementation of X-Road security servers, configuration proxies, and central servers. Complete setup and optimization for your organization's needs with real-world experience from Reiknistofa Lífeyrissjóða.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Operational Monitoring</h3>
+                    <p>Implementation of comprehensive monitoring solutions using X-Road's operational monitoring daemon to ensure reliability and performance of your services, with deep understanding of the monitoring architecture.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Security & Compliance</h3>
+                    <p>Hardening X-Road implementations with security best practices and ensuring compliance with relevant data exchange regulations. My background includes multiple security certifications and work with sensitive financial data.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Service Integration</h3>
+                    <p>Development and integration of SOAP and REST services into your X-Road ecosystem, leveraging experience with various programming languages including Java, Python, and Scala.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Regulatory Integration</h3>
+                    <p>Experience with implementing X-Road for regulatory reporting to financial authorities, including Central Bank integration for obligations registry and mortgage lending data.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Full-Stack Development</h3>
+                    <p>Beyond X-Road, offer comprehensive development skills across various technologies, with proven track record in financial systems, data processing pipelines, and secure communication layers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm Sveinbjörn Geirsson, a software engineer with over a decade of experience in the payment card industry, now specializing in X-Road implementations and integrations.
+                    </p>
+                    <p>
+                        At Reiknistofa Lífeyrissjóða (2023-2025), I managed the setup and maintenance of X-Road security servers, creating a secure communication layer for government services. This work was crucial for regulatory reporting to the Central Bank of Iceland, including the obligations registry for mortgage lending.
+                    </p>
+                    <p>
+                        My expertise encompasses X-Road security server deployment, operational monitoring implementation, performance optimization, and service integration. I'm passionate about building reliable, secure systems where attention to detail and robust implementation are paramount.
+                    </p>
+                    <p>
+                        I'm proficient in Java, Python, Scala, JavaScript/TypeScript, and numerous database systems. I also have extensive experience with cloud infrastructure (GCP/AWS), containerization, and observability tools.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/400/320" alt="Placeholder" />
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            
+            <div class="contact-card">
+                <h3>Let's Discuss Your X-Road Project</h3>
+                <p>
+                    I'm currently available for consulting, implementation, and training projects related to X-Road data exchange layers. Get in touch to discuss how I can help with your specific needs.
+                </p>
+                <div class="contact-info-large">
+                    <a href="mailto:sveinbjorn@sveinbjorn.dev">sveinbjorn@sveinbjorn.dev</a>
+                    <a href="tel:+3548492544">(+354) 849 2544</a>
+                    <p style="margin-top: 15px; font-size: 0.9rem;">Vífilsgata 15, 105 Reykjavík, Iceland</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="logo">xro<span>.ad</span></a>
+                <div class="footer-links">
+                    <a href="#expertise">Expertise</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div style="margin: 15px 0;">
+                    <a href="https://sveinbjorn.dev" target="_blank" style="color: var(--secondary-color); margin-right: 20px;">sveinbjorn.dev</a>
+                    <a href="https://sveinbjorn.is" target="_blank" style="color: var(--secondary-color);">sveinbjörn.is</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2025 Sveinbjörn Geirsson. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
